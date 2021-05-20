@@ -1,0 +1,42 @@
+--allman false
+--binarygrouping 4,8
+--closingparen balanced
+--commas always
+--conflictmarkers reject
+--decimalgrouping 3,6
+--elseposition same-line
+--empty void
+--exponentcase lowercase
+--exponentgrouping disabled
+--fractiongrouping disabled
+--fragment false
+--header ignore
+--hexgrouping 4,8
+--hexliteralcase uppercase
+--ifdef indent
+--importgrouping alphabetized
+--indent 4
+--indentcase false
+--linebreaks lf
+--maxwidth 120
+--nospaceoperators 
+--nowrapoperators 
+--octalgrouping 4,8
+--operatorfunc spaced
+--patternlet hoist
+--self init-only
+--selfrequired 
+--semicolons inline
+--specifierorder 
+--stripunusedargs closure-only
+--tabwidth unspecified
+--trailingclosures 
+--trimwhitespace always
+--wraparguments before-first
+--wrapcollections before-first
+--wrapparameters before-first
+--xcodeindentation disabled
+--disable yodaConditions
+--enable isEmpty
+--header "\nCopyright © {year}. Orynko Artem\n\nMIT license, see LICENSE file for details\n"
+--exclude Package.swift,Pods,Carthage
