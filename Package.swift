@@ -4,20 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "Template",
+    name: "CacheKit",
     products: [
         .library(
-            name: "Template",
-            targets: ["Template"]),
+            name: "CacheKit",
+            targets: ["CacheKit"]),
     ],
     dependencies: [
     ],
     targets: [
         .target(
-            name: "Template",
-            dependencies: []),
+            name: "CacheKit",
+            dependencies: []
+            ),
         .testTarget(
-            name: "TemplateTests",
-            dependencies: ["Template"]),
+            name: "CacheKitTests",
+            dependencies: ["CacheKit"]),
     ]
 )

@@ -1,7 +1,7 @@
 import XCTest
 
-import TemplateTests
+import CacheKitTests
 
 var tests = [XCTestCaseEntry]()
-tests += TemplateTests.allTests()
+tests += CacheKitTests.allTests()
 XCTMain(tests)
