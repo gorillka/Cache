@@ -1,7 +1,10 @@
 import XCTest
 
-import CacheKitTests
+#if os(Linux) || os(FreeBSD)
+@testable import CacheKitTests
 
 var tests = [XCTestCaseEntry]()
-tests += CacheKitTests.allTests()
+tests += MemoryCacheTests.allTests()
+tests += PersistentCacheTests.allTests()
 XCTMain(tests)
+#endif
