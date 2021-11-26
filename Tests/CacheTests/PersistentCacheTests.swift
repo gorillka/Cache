@@ -45,6 +45,15 @@ class PersistentCacheTests: XCTestCase {
         }
     }
     
+    func testToDifferentKeys() {
+        let keyString = UUID().uuidString
+        let key1 = Key(keyString)
+        let key2 = Key(keyString)
+        
+        cache[key1] = Test.blob
+        XCTAssertEqual(cache[key2], Test.blob)
+    }
+    
     func testWhenAddContentNotPersistedImmediately() {
         cache.withSuspendedIO {
             // When

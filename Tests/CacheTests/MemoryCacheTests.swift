@@ -1,6 +1,7 @@
 
 import XCTest
 
+@testable import Cache
 @testable import MemoryCache
 
 class MemoryCacheTests: XCTestCase {
@@ -17,6 +18,15 @@ class MemoryCacheTests: XCTestCase {
     func testCacheCreation() {
         XCTAssertEqual(cache.totalCount, 0)
         XCTAssertNil(cache[Test.testNilKey])
+    }
+    
+    func testToDifferentKeys() {
+        let keyString = UUID().uuidString
+        let key1 = Key(keyString)
+        let key2 = Key(keyString)
+        
+        cache[key1] = Test.blob
+        XCTAssertEqual(cache[key2], Test.blob)
     }
     
     func testThatBlobIsStored() {

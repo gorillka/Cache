@@ -5,6 +5,7 @@ extension MemoryCacheTests {
     static var allTests: [(String, (MemoryCacheTests) -> () throws -> Void)] {
         [
             ("testCacheCreation", testCacheCreation),
+            ("testToDifferentKeys", testToDifferentKeys),
             ("testThatBlobIsStored", testThatBlobIsStored),
             ("testThatBlobIsStoredUsingSubscript", testThatBlobIsStoredUsingSubscript),
             ("testThatTotalCountChanges", testThatTotalCountChanges),
