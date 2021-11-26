@@ -60,7 +60,6 @@ struct Sweeper {
             .compactMap(\.meta.totalFileAllocatedSize)
             .reduce(0, +)
 
-        print(sizeLimit.rawValue)
         guard size > sizeLimit.rawValue else { return }
 
         let targetSizeLimit = Int(Double(sizeLimit.rawValue) * trimRation)
