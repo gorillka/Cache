@@ -186,7 +186,7 @@ extension PersistentCache: PersistentCaching {
     /// Synchronously performs a cache sweep and removes the least recently items
     /// which no longer fit in cache.
     public func sweep() {
-        sweeper(on: queue)
+        sweeper()
     }
 }
 
