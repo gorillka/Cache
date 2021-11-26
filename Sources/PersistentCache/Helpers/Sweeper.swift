@@ -7,11 +7,12 @@
 import Cache
 import Foundation
 
-struct Sweeper {
+final class Sweeper {
     // MARK: - Private Properties
 
     /// The path for directory managed by the cache.
     let path: URL
+    private let queue: DispatchQueue
     private let initialSweepDelay = Time.seconds(10)
 
     // MARK: - Public Properties
@@ -32,21 +33,23 @@ struct Sweeper {
     init(_ path: URL, sizeLimit: Cost, queue: DispatchQueue) {
         self.path = path
         self.sizeLimit = sizeLimit
-        queue.asyncAfter(deadline: .now() + initialSweepDelay.seconds) { [self, unowned queue] in
-            self.performAndSchedule(on: queue)
+        self.queue = queue
+        
+        queue.asyncAfter(deadline: .now() + initialSweepDelay.seconds) { [weak self] in
+            self?.performAndSchedule()
         }
     }
 
     // MARK: - Public Methods
 
-    func callAsFunction(on queue: DispatchQueue) {
+    func callAsFunction() {
         queue.sync(execute: performSweep)
     }
 
-    func performAndSchedule(on queue: DispatchQueue) {
+    func performAndSchedule() {
         performSweep()
-        queue.asyncAfter(deadline: .now() + sweepInterval.seconds) { [unowned queue] in
-            performAndSchedule(on: queue)
+        queue.asyncAfter(deadline: .now() + sweepInterval.seconds) { [weak self] in
+            self?.performAndSchedule()
         }
     }
 
